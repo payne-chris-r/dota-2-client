@@ -1,11 +1,19 @@
 'use strict';
 
 // user require with a reference to bundle the file and use it in this file
-// let example = require('./example');
+// var example = require('./example');
 
-const authEvents = require('./auth/events.js');
+// load manifests
+// scripts
+require('./assets/scripts/index.js');
 
-// On document ready
-$(() => {
- authEvents.addHandlers();
-});
+// styles
+require('./assets/styles/index.scss');
+
+// attach jQuery globally
+require('expose?$!jquery');
+require('expose?jQuery!jquery');
+
+// attach getFormFields globally
+
+require('expose?getFormFields!./lib/get-form-fields.js');
