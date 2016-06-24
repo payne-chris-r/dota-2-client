@@ -78,6 +78,21 @@ const deleteMatch = function (deleteMatch) {
   );
 };
 
+const updateMatch = function (matchIDtoUpdate, updatedOpponentName) {
+  return $.ajax(
+  {
+    url: app.host + '/matches/' + matchIDtoUpdate,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data :{
+          "match": {
+            "opponent": updatedOpponentName
+            }
+          }
+  });
+};
 
 module.exports = {
   signUp,
@@ -87,4 +102,5 @@ module.exports = {
   getHistory,
   createMatch,
   deleteMatch,
+  updateMatch,
 };
