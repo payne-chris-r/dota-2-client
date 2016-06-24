@@ -24,9 +24,22 @@ const signOutSuccess = () => {
   app.user = null;
 };
 
+const getGamesSuccess = (data) => {
+  app.matches = data.matches;
+  console.log(data);
+  let matchHistory = "";
+  for (let i = 0; i < app.matches.length; i++)
+    {
+      matchHistory = matchHistory + app.matches[i].opponent;
+    }
+  $("#game-history").text(matchHistory);
+
+};
+
 module.exports = {
   success,
   failure,
   signInSuccess,
-  signOutSuccess
+  signOutSuccess,
+  getGamesSuccess,
 };

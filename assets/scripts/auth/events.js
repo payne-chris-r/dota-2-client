@@ -40,6 +40,16 @@ const onChangePassword = (event) => {
 const onGetHistory = (event) => {
   event.preventDefault();
   api.getHistory()
+  .done(ui.getGamesSuccess)
+  .fail(ui.failure);
+};
+
+const onCreateMatch = (event) => {
+  event.preventDefault();
+  // let opponentName = $("#create-match").val();
+  // console.log(opponentName);
+  // console.log('matt is awesome');
+  api.createMatch()
   .done(ui.success)
   .fail(ui.failure);
 };
@@ -50,6 +60,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
   $('#opponent-name').on('submit', onGetHistory);
+  $('#create-match').on('submit', onCreateMatch);
 };
 //
 module.exports = {

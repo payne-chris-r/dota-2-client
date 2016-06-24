@@ -50,10 +50,27 @@ const getHistory = () => {
 };
 
 
+const createMatch = function () {
+  return $.ajax(
+  {
+    url: app.host + '/matches',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data :{
+          "match": {
+            "opponent": "Pete Sampras"
+            }
+          }
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   getHistory,
+  createMatch,
 };
