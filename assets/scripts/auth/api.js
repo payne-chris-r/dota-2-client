@@ -39,9 +39,21 @@ const changePassword = (data) => {
   });
 };
 
+const getHistory = () => {
+  return $.ajax({
+    url: app.host + '/matches',
+    method: "GET",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
+  getHistory,
 };

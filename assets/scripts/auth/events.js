@@ -37,12 +37,19 @@ const onChangePassword = (event) => {
   .fail(ui.failure);
 };
 
+const onGetHistory = (event) => {
+  event.preventDefault();
+  api.getHistory()
+  .done(ui.success)
+  .fail(ui.failure);
+};
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#opponent-name').on('submit', onGetHistory);
 };
 //
 module.exports = {
