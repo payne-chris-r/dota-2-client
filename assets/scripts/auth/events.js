@@ -46,9 +46,9 @@ const onGetHistory = (event) => {
 
 const onCreateMatch = (event) => {
   event.preventDefault();
-  // let opponentName = $("#create-match").val();
-  // console.log(opponentName);
-  // console.log('matt is awesome');
+  let opponentName = $("#getOpponentName").val();
+  console.log(opponentName);
+  console.log('matt is awesome');
   api.createMatch()
   .done(ui.success)
   .fail(ui.failure);
