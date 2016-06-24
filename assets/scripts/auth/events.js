@@ -54,6 +54,17 @@ const onCreateMatch = (event) => {
   .fail(ui.failure);
 };
 
+const onDeleteMatch = (event) => {
+  event.preventDefault();
+  let deleteMatch = $("#match-ID-to-delete").val();
+  console.log(deleteMatch);
+  console.log('matt is awesome');
+  api.deleteMatch(deleteMatch)
+  .done(ui.success)
+  .fail(ui.failure);
+};
+
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
@@ -61,6 +72,9 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword);
   $('#opponent-name').on('submit', onGetHistory);
   $('#create-match').on('submit', onCreateMatch);
+  $('#delete-match').on('submit', onDeleteMatch);
+  $('#patch-match').on('submit', onDeleteMatch);
+
 };
 //
 module.exports = {

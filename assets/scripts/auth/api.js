@@ -66,6 +66,19 @@ const createMatch = function (opponentName) {
   });
 };
 
+const deleteMatch = function (deleteMatch) {
+  return $.ajax(
+  {
+    url: app.host + '/matches/' + deleteMatch,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  }
+  );
+};
+
+
 module.exports = {
   signUp,
   signIn,
@@ -73,4 +86,5 @@ module.exports = {
   changePassword,
   getHistory,
   createMatch,
+  deleteMatch,
 };
