@@ -49,7 +49,7 @@ const onCreateMatch = (event) => {
   let opponentName = $("#getOpponentName").val();
   console.log(opponentName);
   console.log('matt is awesome');
-  api.createMatch()
+  api.createMatch(opponentName)
   .done(ui.success)
   .fail(ui.failure);
 };

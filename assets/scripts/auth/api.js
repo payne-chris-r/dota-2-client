@@ -50,7 +50,7 @@ const getHistory = () => {
 };
 
 
-const createMatch = function () {
+const createMatch = function (opponentName) {
   return $.ajax(
   {
     url: app.host + '/matches',
@@ -60,7 +60,7 @@ const createMatch = function () {
     },
     data :{
           "match": {
-            "opponent": "Pete Sampras"
+            "opponent": opponentName
             }
           }
   });
