@@ -39,9 +39,23 @@ const changePassword = (data) => {
   });
 };
 
+//this getHistory works using current_user on front end
+
+// const getHistory = () => {
+//   return $.ajax({
+//     url: app.host + '/matches',
+//     method: "GET",
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//   });
+// };
+
+//this is getHistory below is the one I made using putting the user_id in url
+
 const getHistory = () => {
   return $.ajax({
-    url: app.host + '/matches',
+    url: app.host + '/get-user-matches/' + app.user.id,
     method: "GET",
     headers: {
       Authorization: 'Token token=' + app.user.token,
