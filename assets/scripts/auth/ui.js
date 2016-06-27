@@ -30,7 +30,7 @@ const getGamesSuccess = (data) => {
   let matchHistory = "";
   for (let i = 0; i < app.matches.length; i++)
     {
-      matchHistory = matchHistory + app.matches[i].opponent;
+      matchHistory = matchHistory + app.matches[i].opponent; 
     }
   $("#game-history").text(matchHistory);
 
