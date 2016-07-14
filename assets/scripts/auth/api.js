@@ -53,68 +53,9 @@ const changePassword = (data) => {
 
 //this is getHistory below is the one I made using putting the user_id in url
 
-const getHistory = () => {
-  return $.ajax({
-    url: app.host + '/get-user-matches/' + app.user.id,
-    method: "GET",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  });
-};
-
-
-const createMatch = function (opponentName) {
-  return $.ajax(
-  {
-    url: app.host + '/matches',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-    data :{
-          "match": {
-            "opponent": opponentName
-            }
-          }
-  });
-};
-
-const deleteMatch = function (deleteMatch) {
-  return $.ajax(
-  {
-    url: app.host + '/matches/' + deleteMatch,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-  }
-  );
-};
-
-const updateMatch = function (matchIDtoUpdate, updatedOpponentName) {
-  return $.ajax(
-  {
-    url: app.host + '/matches/' + matchIDtoUpdate,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    },
-    data :{
-          "match": {
-            "opponent": updatedOpponentName
-            }
-          }
-  });
-};
-
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  getHistory,
-  createMatch,
-  deleteMatch,
-  updateMatch,
 };

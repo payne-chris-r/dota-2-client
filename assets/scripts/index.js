@@ -9,8 +9,12 @@
 // let example = require('./example');
 
 const authEvents = require('./auth/events.js');
+const gameEvents = require('./games/events.js');
+const profileEvents = require('./profiles/events.js');
 
 // On document ready
 $(() => {
  authEvents.addHandlers();
+ gameEvents.addHandlers();
+ profileEvents.addHandlers();
 });

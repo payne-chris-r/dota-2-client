@@ -1,6 +1,14 @@
 'use strict';
 
 const app = require('../app.js');
+const profilesApi = require('../profiles/api.js');
+const profilesUi = require('../profiles/ui.js');
+
+const refreshProfile = () => {
+  profilesApi.getProfile()
+  .done(profilesUi.getProfileSuccess)
+  .fail(profilesUi.failure);
+};
 
 const success = (data) => {
   if (data) {
@@ -15,8 +23,10 @@ const failure = (error) => {
 };
 
 const signInSuccess = (data) => {
+  console.log('SIGN IN SUCCESS');
   app.user = data.user;
-  console.log(app.user);
+  //get the profile associated with the user
+  refreshProfile();
 };
 
 const signOutSuccess = () => {
@@ -24,22 +34,9 @@ const signOutSuccess = () => {
   app.user = null;
 };
 
-const getGamesSuccess = (data) => {
-  app.matches = data.matches;
-  console.log(data);
-  let matchHistory = "";
-  for (let i = 0; i < app.matches.length; i++)
-    {
-      matchHistory = matchHistory + app.matches[i].opponent; 
-    }
-  $("#game-history").text(matchHistory);
-
-};
-
 module.exports = {
   success,
   failure,
   signInSuccess,
   signOutSuccess,
-  getGamesSuccess,
 };
