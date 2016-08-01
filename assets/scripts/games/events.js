@@ -21,12 +21,10 @@ const onGetGames = (event) => {
 
 const onCreateGame = (event) => {
   event.preventDefault();
-  console.log(event.target);
-  let data = getFormFields(event.target);
-  console.log(data);
+  // console.log(event.target);
+  // let data = getFormFields(event.target);
+  // console.log(data);
   let opponentName = $("#getOpponentName").val();
-  console.log(opponentName);
-  console.log('Yo dude');
   api.createGame(opponentName)
   .done(ui.success)
   .fail(ui.failure);
